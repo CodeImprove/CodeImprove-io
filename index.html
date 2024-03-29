@@ -115,7 +115,34 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                 }
                 </code>
                 </pre>  </li>
-              <li>do-loop to while-loop</li>
+              <li>do-loop to while-loop. <br> 
+                    <p>During do-while-loop transformation into a while-loop, the body statement inside the do-while-loop
+                    will be executed once before entering the transformed
+                    while-loop. </p>
+              <pre>
+              <code>
+               Do-while-loop:
+                    do {
+                        // Loop body
+                        // Statements to execute
+                        increment;
+                    } while (condition);
+
+                While-loop Transformation:
+                        // Execute the loop body
+                        // Statements to execute
+                        while (condition) {
+                        // Loop body
+                        // Statements to execute
+                        increment;
+                    }
+                    </code>
+                    </pre>
+              
+              
+              
+              
+              </li>
               <li>if elseif to if else</li>
               <li>if else to if elseif</li>
               <li>Switch statements to if elseif</li>
