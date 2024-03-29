@@ -198,7 +198,8 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
               </li>
                   
               <li>Switch statements to if elseif <br> <pre><code>
-
+                <pre>
+              <code>
                   switch statement:
                       switch (a) {
                         case A: body A
@@ -210,8 +211,9 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                       if (a ==A) body A
                       else if (a==B) body B
                       else body C 
-              </pre>
+             
               </code>
+               </pre>
               </li>
               
                     
@@ -224,12 +226,71 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
               Modify unary operations such as <pre><code> i++; to i=i+1</code></pre>
               
               </li>
-              <li>Modifications to incremental operations</li>
-              <li>Modifying constants</li>
-              <li>Modifications to variable definitions</li>
-              <li>Add junk code</li>
-              <li>Change order of statements in a block</li>
-              <li>Deleting statements that print debugging hints and comments</li>
+              <li>Modifications to incremental operations. <br>
+              Modifies incremental operators such as <pre><code> i+=1; to i=i+1;</code></pre>
+              
+              </li>
+              <li>Modifying constants <br> 
+              Modify the constant values in expressions such as <pre><code> i = 0; to i = 10-10;</code></pre>
+              
+              </li>
+              <li>Modifications to variable definitions. <br>
+              Modifies the definitions of variables. <pre><code> 
+              int b = 0; to int b; b=0;
+              </code></pre>
+              
+              </li>
+              <li>Add junk code. <br>
+              <p>Adds code that will never be executed</p>
+                  <pre><code>
+                      before adding the junk code: 
+                          if(a){
+                              \\body A
+                          }
+
+                      after adding the junk code:
+                          if(a){
+                              \\body A
+                              if (0) return 0;
+                          }
+
+
+                  </code></pre>
+              </li>
+              <li>Change order of statements in a block. <br>
+                 <p> Only reorder the statements without any data- or control-dependency.</p>
+
+                  <pre><code>
+                    before reorder: 
+                      a = b+10;
+                      c = d+10;
+
+                    after reorder:
+                      c = d+10;
+                      a = b+10;
+
+                      
+                  </code></pre>
+              
+              
+              </li>
+              <li>Deleting statements that print debugging hints and comments. <br>
+                <p>Only delete comments or statements that print debugging hints or intermediate results.</p>
+                 <pre><code>
+                        printf("trial");
+                        //comments;
+
+                     to 
+
+                     <strike> 
+                     printf("trial);
+                     //comments;
+                    </strike>
+
+                     
+                 </code></pre>
+                  
+              </li>
 
             </ol>  
      </div>
