@@ -197,7 +197,7 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
               </pre>
               </li>
                   
-              <li>Switch statements to if elseif <br> 
+              <li>Switch statements to if elseif <br> <pre><code>
 
                   switch statement:
                       switch (a) {
@@ -210,8 +210,8 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                       if (a ==A) body A
                       else if (a==B) body B
                       else body C 
-              <pre>
-              <code>
+              </pre>
+              </code>
               </li>
               
                     
@@ -220,7 +220,10 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                Transform relational expressions such as <pre><code> a < b to b >a </b></code></pre>
               
               </li>
-              <li>Modification to Unary operations</li>
+              <li>Modification to Unary operations. <br> 
+              Modify unary operations such as <pre><code> i++; to i=i+1</code></pre>
+              
+              </li>
               <li>Modifications to incremental operations</li>
               <li>Modifying constants</li>
               <li>Modifications to variable definitions</li>
