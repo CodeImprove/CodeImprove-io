@@ -143,10 +143,83 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
               
               
               </li>
-              <li>if elseif to if else</li>
-              <li>if else to if elseif</li>
-              <li>Switch statements to if elseif</li>
-              <li>Relation expression transformation</li>
+              <li>if elseif to if else <br>
+              <pre>
+              <code>
+               if else-if :
+                    if(condition A){ 
+                          //body A
+                    }else-if (condition B){
+                          //body B
+                    } else {
+                          //body C
+                    }
+
+                if-else transformation:
+                    if(condition A){ 
+                          //body A
+                    } else {
+                         if (condition B) {
+                            //body B
+                         }
+                         else {
+                            //body C
+                          }
+                     } 
+                    </code>
+                    </pre>
+              </li>
+              <li>if else to if else-if <br> 
+              <pre>
+              <code>
+
+                  if-else:
+                    if(condition A){ 
+                          //body A
+                    } else {
+                         if (condition B) {
+                            //body B
+                         }
+                         else {
+                            //body C
+                          }
+                     } 
+
+                    if else-if transformation:
+                      if(condition A){ 
+                          //body A
+                        }else-if (condition B){
+                          //body B
+                        } else {
+                          //body C
+                        }
+              </code>
+              </pre>
+              </li>
+                  
+              <li>Switch statements to if elseif <br> 
+
+                  switch statement:
+                      switch (a) {
+                        case A: body A
+                        case B: body B
+                        default: body C
+                     }
+
+                  if else-if transformation: 
+                      if (a ==A) body A
+                      else if (a==B) body B
+                      else body C 
+              <pre>
+              <code>
+              </li>
+              
+                    
+                  
+              <li>Relation expression transformation. <br>
+               Transform relational expressions such as <pre><code> a < b to b >a </b></code></pre>
+              
+              </li>
               <li>Modification to Unary operations</li>
               <li>Modifications to incremental operations</li>
               <li>Modifying constants</li>
