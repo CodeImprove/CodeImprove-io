@@ -90,12 +90,16 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                         The logit output of C and C<sub>i</sub> denoted as O<sub>y</sub>(C) and O<sub>y</sub>(C<sub>i</sub>) respectively. 
                         
                         The importance score is denoted as: <br>
-                        <math>  I<sub>i</sub> = O<sub>y</sub>(C) − O<sub>y</sub>(C<sub>i</sub>) </math>
+                        I<sub>i</sub> = O<sub>y</sub>(C) − O<sub>y</sub>(C<sub>i</sub>)
 
 
                         Once the importance scores are computed, we select the top K identifiers. For each identifier in K we replace the original
                         identifier by generating candidates using the RoBERTa masked language model. Then we selected the identifier with highest logit output value to replace the original code. 
                         Maintaining K identifiers ensure to limit the large search space because the search space is limited to K identifiers.
+
+                        <pre><code>
+                            int i; to int t; 
+                        </code></pre>
 
                         
                     </p>
