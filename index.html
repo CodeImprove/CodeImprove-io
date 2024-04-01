@@ -78,6 +78,7 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
         <h2 class="title is-3">Transformation Rules </h2>
         <div class="content has-text-justified">
             <ol type="1">
+                <p> CodeImprove currently employs 15 transformation operators. The list of operators are as follows: </p>
               <li>Function and Variable Name Renaming</li>
                     <p>
                         We will extract all identifiers from a given input by parsing the code and capturing the identifiers by filtering out keywords, macros, and special identifiers (e.g., main, stdio, etc.). This step ensures that the identifiers are only variable/function names. 
@@ -89,8 +90,8 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                         To compute the importance score we retrieved the tokens of both original code C = [t<sub>0</sub>, · · ·, t<sub>i</sub>, · · ·] and code after replacing the identifier with [MASK] at the i<sup>th</sup> token C<sub>i</sub> = [t<sub>0</sub>, · ·, t<sub>i-1</sub>, [MASK], t<sub>i+1</sub>, · · ·]. 
                         The logit output of C and C<sub>i</sub> denoted as O<sub>y</sub>(C) and O<sub>y</sub>(C<sub>i</sub>) respectively. 
                         
-                        The importance score is denoted as: <br>
-                        I<sub>i</sub> = O<sub>y</sub>(C) − O<sub>y</sub>(C<sub>i</sub>)
+                        The importance score is denoted as: <br> <br>
+                        I<sub>i</sub> = O<sub>y</sub>(C) − O<sub>y</sub>(C<sub>i</sub>) <br><br>
 
 
                         Once the importance scores are computed, we select the top K identifiers. For each identifier in K we replace the original
