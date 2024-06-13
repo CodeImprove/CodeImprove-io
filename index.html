@@ -107,12 +107,12 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
         <p>
             For each mispredicted input, we can apply a sequence of transformations to find the most likely input to adapt the model’s performance. Assume that T is the algorithm to apply a set of transformations T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub>, ..., T<sub>n</sub> to find a new input x'. We predict the new input x' with M to get y':
         </p>
-        <p>
-            x' = T(T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n</sub>(x))<br>
-            y' = M(x')<br>
-            If y' == y, adapt the input.<br>
-            Else, apply more transformations.
-        </p>
+        <ul>
+            <li>x' = T(T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n</sub>(x))</li>
+            <li>y' = M(x')</li>
+            <li>If y' == y, adapt the input.</li>
+            <li>Else, apply more transformations.</li>
+        </ul>
     </section>
 </body>
 
