@@ -405,6 +405,59 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
   </div>
 </section>
 
- 
+  <section id="Input-validation">
+        <h2>Experiment Results</h2>
+        <table>
+            <caption>AUC Comparison of Different Input Validation Techniques</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Experiment</th>
+                    
+                    <th colspan="3">Vulnerability Detection</th>
+                    <th colspan="3">Defect Prediction</th>
+                </tr>
+                <tr>
+                    <th>CodeBERT</th>
+                    <th>RoBERTa</th>
+                    <th>GraphCodeBERT</th>
+                    <th>CodeBERT</th>
+                    <th>RoBERTa</th>
+                    <th>GraphCodeBERT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CLD</td>
+                    
+                    <td>0.850</td>
+                    <td>0.819</td>
+                    <td>0.757</td>
+                    <td>0.889</td>
+                    <td>0.828</td>
+                    <td>0.873</td>
+                </tr>
+                <tr>
+                    <td>CodeImprove-no-dropout</td>
+                    
+                    <td>0.850</td>
+                    <td>0.819</td>
+                    <td>0.757</td>
+                    <td>0.891</td>
+                    <td>0.903</td>
+                    <td>0.989</td>
+                </tr>
+                <tr>
+                    <td>CodeImprove</td>
+                   
+                    <td>0.876</td>
+                    <td>0.825</td>
+                    <td>0.781</td>
+                    <td>0.911</td>
+                    <td>0.924</td>
+                    <td>0.909</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
     
 </html>
