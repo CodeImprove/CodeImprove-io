@@ -373,25 +373,24 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
   </div>
 </section>
 
-<section id="layer-selection">
+    <section id="layer-impact">
         <h2>Experiment Results</h2>
         <table>
+            <caption> AUC comparison on Distinguishing Out-of-Scope Inputs for Different Sub-models</caption>
             <thead>
                 <tr>
-                    <th>Experiment</th>
-                    <th>Selected Layer-IDs</th>
+                    <th rowspan="2">Experiment</th>
+                    <th rowspan="2">Selected Layer-IDs</th>
                     <th colspan="3">Vulnerability Detection</th>
                     <th colspan="3">Defect Prediction</th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th></th>
                     <th>CodeBERT</th>
                     <th>RoBERTa</th>
-                    <th>BERT</th>
+                    <th>GraphCodeBERT</th>
                     <th>CodeBERT</th>
                     <th>RoBERTa</th>
-                    <th>BERT</th>
+                    <th>GraphCodeBERT</th>
                 </tr>
             </thead>
             <tbody>
