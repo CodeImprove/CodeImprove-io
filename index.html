@@ -75,7 +75,7 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
     <h1>Problem Definition</h1>
     
     <section id="problem-definition">
-        <h2>Oracle Problem and Code Adaptation</h2>
+       
         <p>
             Given a code model M and an input code snippet x, the class with the largest probability is the final prediction result of M for x, denoted as M(x). Assume y is the ground truth label of x. We can denote the correct prediction or misprediction as follows:
         </p>
@@ -87,6 +87,12 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             However, these code models do not guarantee the correct prediction for each test input during deployment. This work aims to improve the model performance on test inputs via code adaptation, which is an effective technique different from others that require retraining or replacing the model.
         </p>
         <p>
+            The process of input adaptation for code data possesses two challenges: 1) Oracle problem: validating a given test input as in-scope or out-of-scope, and 2) Search problem: how to adapt the out-of-scope input to become in-scope input.
+        </p>
+
+         <h2>Oracle Problem</h2>
+        
+        <p>
             During the deployment of a code model, we cannot exactly determine whether the prediction for a given code input is correct without manual analysis. This means that it is difficult to automatically decide whether a given code input is correctly predicted or not. Therefore, we can formulate the oracle problem as follows:
         </p>
         <p>
@@ -96,6 +102,8 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             <li>If V(M(x)) &gt; c, it is a correct prediction, where c is a threshold to differentiate the validity score.</li>
             <li>Else, it is a misprediction.</li>
         </ul>
+
+         <h2>Code Adaptation</h2>
         <p>
             For each mispredicted input, we can apply a sequence of transformations to find the most likely input to adapt the model’s performance. Assume that T is the algorithm to apply a set of transformations T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub>, ..., T<sub>n</sub> to find a new input x'. We predict the new input x' with M to get y':
         </p>
