@@ -35,6 +35,34 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .figure {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+        .figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 5px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -458,6 +486,28 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
                 </tr>
             </tbody>
         </table>
+    </section>
+
+    
+    <section>
+         <section id="examples">
+        <h1>More Examples on Adapted Inputs by CodeImprove</h1>
+        <div class="container">
+            <div class="figure">
+                <img src="path_to_your_image_before_transformation.jpg" alt="Before Transformation">
+                <div class="caption">
+                    <p><strong>(a) Before Transformation</strong></p>
+                    
+                </div>
+            </div>
+            <div class="figure">
+                <img src="path_to_your_image_after_transformation.jpg" alt="After Transformation">
+                <div class="caption">
+                    <p><strong>(b) After Transformation</strong></p>
+                   
+                </div>
+            </div>
+        </div>
     </section>
     
 </html>
