@@ -521,7 +521,7 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             <p>Fig. 1: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
-             <p>In the transformation of the given code in Fig. 1, several key changes were made to improve the model's understanding of the code data. Originally (lines 10-12), variables were declared together, and the loop increment was written as i++. The increment operation within the loop was simplified to count++. After transformation (lines 10-18), variables were declared separately (int count; int i; int j;), the loop increment was explicitly written as i = i + 1, and the increment operation was clarified to count = count + 1. These changes made the code logic more explicit, helping the model accurately predict the “wrong output”.
+             <p>In the transformation of the given code in Fig. 1, several key changes were made to improve the model's understanding of the code data. Originally (lines 10-12), variables were declared and assigned together, and the loop increment was written as i++. The increment operation within the loop was simplified to count++. After transformation (lines 10-18), variables were declared separately (int count; int i; int j;) and assigned later (cout = 0;), the loop increment was explicitly written as i = i + 1, and the increment operation was clarified to count = count + 1. These changes made the code logic more explicit, helping the model accurately predict the “wrong output”.
             </p>
 
         <div class="container">
@@ -541,9 +541,14 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 2: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 2: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
     </section>
+
+    <p>
+       In the transformation of the provided code in Fig. 2, several changes were made to improve the model's prediction accuracy. Initially, in the original code (lines 6-34), the loops and condition checks were straightforward, with nested loops for scanning and processing the array.  First, the while loop in line 6 was converted to a for loop. Then, the initialization and increment of for loops lines 22 and 24 has been seperated in the Fig. 2b. At last, After transformation (lines 7-42), some for loops (lines 25, 29, 30 in Fig.2a) were converted into while loops with explicit increment operations (k++, j++), and variables were initialized separately.  These adjustments made the model to understand code logic differently, resulting in the model accurately predicting the "wrong output".
+        
+    </p>
 
     <div class="container">
             <div class="figure">
@@ -562,8 +567,12 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 3: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 3: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
+
+        <p>
+            In the code transformation in Fig. 3, key changes were made to improve the prediction accuracy by CodeImprove. Initially, the code used for loops (lines 8-9, 11-12) to iterate over the array for scanning values and finding the minimum. In the transformed version, these for loops were replaced with while loops (lines 8-11, 16-19), where the loop variables were explicitly incremented (i++) within the loop bodies. Additionally, the initialization of the loop variable i was moved outside the loops (lines 8, 16), and leading to the correct prediction of the "wrong output".
+        </p>
 
     <div class="container">
             <div class="figure">
@@ -582,9 +591,13 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 4: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 4: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
+        <p>
+            In the provided code snippet in Fig. 4, several transformations were made to improve prediction accuracy. Initially (lines 3-14), the code declared the array a[100][100] and used compact for loops with combined initialization and iteration. Specifically, the loop on line 7 was used to reset t[i], and the loop on line 13 started with i = 1. After transformation (lines 3-15), the array declaration was updated with specific dimensions by modifying the constants, with expressions like i = (509 - 409) and i = (234 - 233). These changes lead to an accurate model predictions.
+
+        </p>
     <div class="container">
             <div class="figure">
                 <img src="./Example/5a.jpg" alt="Before Transformation">
@@ -602,9 +615,12 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 5: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 5: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
+        <p>
+            In the provided code snippet in Fig. 5, several transformation were made to improve prediction accuracy. Initially (lines 3-16), the while loop on line 12 iterated with t-- and the base case for gcd_euclid on lines 3-7 used simple conditions. In the transformed version (lines 3-20), the while loop was replaced with a for loop (for(; t--; )), and conditions within gcd_euclid were expanded with modified constant values, such as if (b == (910 - 910)) and if (a >= b && b > (404 - 404)). These changes transformation lead to the correct prediction of the "wrong output".
+        </p>
         <div class="container">
             <div class="figure">
                 <img src="./Example/7a.jpg" alt="Before Transformation">
@@ -622,9 +638,11 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 6: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 6: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
-
+            <p>
+                In the provided code snippet in Fig. 6, several transformations were made to improve prediction accuracy. Initially (lines 2-14), the while loop on line 13 iterated with a-- and the base case for GCD on line 3 used a simple condition (if (b == 0)). In the transformed version (lines 2-15), the while loop was replaced with a for loop (for (; a--; )), and the condition within GCD was expanded with modified constant values (if (b == (948 - 948))). These changes lead to the correct prediction of a "timeout error".
+            </p>
         <div class="container">
             <div class="figure">
                 <img src="./Example/8a.jpg" alt="Before Transformation">
@@ -642,8 +660,12 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 7: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 7: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
+
+        <p>
+            In the provided code snippet in Fig 7, several transformation were made to improve prediction accuracy. Initially (lines 7-10), the while loop iterated with t--, and the for loop used a standard initialization and increment pattern. In the transformed version (lines 6-17), the while loop was replaced with a for loop (for(; t--; )), and the initialization for the inner for loop was separated with an increment operation (i++;). These changes lead to the correct prediction of the "wrong output".
+        </p>
 
      <div class="container">
             <div class="figure">
@@ -662,9 +684,13 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 8: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 8: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
+        <p>
+            In the provided code snippet in Fig. 8, several transformation were undertaken to improve prediction accuracy. Initially (lines 2-3), variables were declared together, and the while loop (line 5) iterated with t--. In the transformed version (lines 2-7), variable declarations were separated, and the while loop was replaced with a for loop (for(; t = t-1;)). These modifications  helped the model correctly predict a "timeout error". 
+
+        </p>
         <div class="container">
             <div class="figure">
                 <img src="./Example/2a.jpg" alt="Before Transformation">
@@ -682,7 +708,11 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 9: An example of a Mispredicted Input changed to a Correctly Predicted Input by Codeimrpove</p>
+            <p>Fig. 9: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
+
+        <p>
+            In the provided code in Fig. 9, several transformation were undertaken by CodeImprove to improve prediction accuracy. Initially (lines 2-3, 6-8, 10-14), variables were declared together, loop initializations were concise, and the sum and pos variables were reset within nested loops. After transformation (lines 2-33), variable initializations were updated with modified constants, loops were adjusted (e.g., k = k + 1, i = i + 1), and constants were added to initialization. These changes lead to the correct prediction of a "timeout error".
+        </p>
     
 </html>
