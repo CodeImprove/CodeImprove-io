@@ -141,14 +141,14 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
     
     <section id="problem-definition">
        
-   <p>
+  <p>
     Given a code model <code>M</code> and an input code snippet <code>x</code>, the class with the highest probability is the final prediction result of <code>M</code> for <code>x</code>, denoted as <code>M(x)</code>. During deployment, it is challenging to ensure that every prediction is correct. Thus, our goal is to improve model performance on test inputs via code adaptation.
 </p>
 <p>
     Let <code>y</code> be the ground truth label of <code>x</code> and <code>y' = M(x')</code> be the prediction result after adapting <code>x</code> to <code>x'</code> through a series of transformations.
 </p>
 <p>
-    The objective is to compute a validation metric <code>V</code> and a set of transformations <code>T<sub>n</sub></code> such that the fitness score of the adapted code <code>L(y')</code> is smaller than the original fitness score <code>L(y)</code>.
+    The objective is to compute a validation metric <code>V</code> and a set of transformations <code>T<sub>n</sub> </code> such that the loss function of the adapted prediction <code>L(y')</code> is smaller than the original loss <code>L(y)</code>.
 </p>
 
 <p>
@@ -158,21 +158,28 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
     <li><code>y = M(x)</code></li>
     <li>If <code>V(M(x)) &le; c</code>, where <code>c</code> is a threshold, then:
         <ul>
-            <li>Apply transformations <code>T<sub>n</sub></code> to obtain <code>x'</code>:
-                <br><code>x' = <code>T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub>(x)</code>
+            <li>Apply transformations <code>T<sub>n</sub> </code> to obtain <code>x'</code>:
+                <br><code>x' = T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub>(x)</code>
             </li>
             <li>Predict the new input <code>x'</code> with <code>M</code> to obtain <code>y'</code>:
                 <br><code>y' = M(x')</code>
             </li>
-            <li>Ensure the fitness score of <code>y'</code> such that the new fitness score <code>L(y')</code> is smaller than the original fitness score <code>L(y)</code>:
-                <br><code>L(y') < L(y)</code>
+            <li>Ensure the loss of <code>y'</code> such that the new loss <code>L(y')</code> is smaller than the original loss <code>L(y)</code>:
+                <br><code>L(y') &lt; L(y)</code>
             </li>
         </ul>
     </li>
 </ul>
-                    
 <p>
-    The challenge is to develop an effective validation metric <code>V</code> and a sequence of transformations <code>T<sub>n</sub></code> that adapt mispredicted inputs, thereby improving the model's performance without necessitating retraining.
+    The loss <code>L</code> is characterized by the distance from the ground truth. For example, a simple loss function could be:
+</p>
+<ul>
+    <li>If the prediction equals the ground truth, the loss is 0: <code>L(y') = 0</code>.</li>
+    <li>If the prediction does not equal the ground truth, the loss is 1: <code>L(y') = 1</code>.</li>
+</ul>
+
+<p>
+    The challenge is to develop an effective validation metric <code>V</code> and a sequence of transformations <code>T<sub>n</sub> </code> that adapt mispredicted inputs, thereby improving the model's performance without necessitating retraining.
 </p>
 </section>
 </body>
