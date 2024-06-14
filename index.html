@@ -720,6 +720,30 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
 
         <div class="container">
             <div class="figure">
+                <img src="./Example/11a.jpg" alt="Before Transformation">
+                <div class="caption">
+                    <p><strong>(a) Before Transformation</strong></p>
+                    
+                </div>
+            </div>
+            <div class="figure">
+                <img src="./Example/11b.jpg" alt="After Transformation">
+                <div class="caption">
+                    <p><strong>(b) After Transformation</strong></p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="section-caption">
+            <p>Fig. 10: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
+        </div>
+
+        <p>In the provided code snippet in Fig. 10, only one transformation was made improve prediction accuracy. Initially (lines 5-24), the while loop iterated with t--. In the transformed version (lines 5-24), the while loop was modified to decrement t  within the loop condition (t = t - 1). This change made the model correctly predict the "runtime error". 
+        </p>
+        
+
+        <div class="container">
+            <div class="figure">
                 <img src="./Example/2a.jpg" alt="Before Transformation">
                 <div class="caption">
                     <p><strong>(a) Before Transformation</strong></p>
@@ -735,11 +759,11 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 10: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
+            <p>Fig. 11: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
         <p>
-            In the provided code in Fig. 10, several transformation were undertaken by CodeImprove to improve prediction accuracy. Initially (lines 2-3, 6-8, 10-14), variables were declared together, loop initializations were concise, and the sum and pos variables were reset within nested loops. After transformation (lines 2-33), variable initializations were updated with modified constants, loops were adjusted (e.g., k = k + 1, i = i + 1), and constants were added to initialization. These changes lead to the correct prediction of a "timeout error".
+            In the provided code in Fig. 11, several transformation were undertaken by CodeImprove to improve prediction accuracy. Initially (lines 2-3, 6-8, 10-14), variables were declared together, loop initializations were concise, and the sum and pos variables were reset within nested loops. After transformation (lines 2-33), variable initializations were updated with modified constants, loops were adjusted (e.g., k = k + 1, i = i + 1), and constants were added to initialization. These changes lead to the correct prediction of a "timeout error".
         </p>
     
 </html>
