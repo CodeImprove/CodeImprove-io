@@ -693,6 +693,31 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             In the provided code snippet in Fig. 8, several transformation were undertaken to improve prediction accuracy. Initially (lines 2-3), variables were declared together, and the while loop (line 5) iterated with t--. In the transformed version (lines 2-7), variable declarations were separated, and the while loop was replaced with a for loop (for(; t = t-1;)). These modifications  helped the model correctly predict a "timeout error". 
 
         </p>
+
+        <div class="container">
+            <div class="figure">
+                <img src="./Example/10a.jpg" alt="Before Transformation">
+                <div class="caption">
+                    <p><strong>(a) Before Transformation</strong></p>
+                    
+                </div>
+            </div>
+            <div class="figure">
+                <img src="./Example/10b.jpg" alt="After Transformation">
+                <div class="caption">
+                    <p><strong>(b) After Transformation</strong></p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="section-caption">
+            <p>Fig. 9: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
+        </div>
+
+        <p>
+            In the provided code snippet in Fig. 9, several transformations were made to improve prediction accuracy. Initially (lines 9-20), nested for loops were used for array operations. The outer loop on line 18 was used to decrement i, and the inner loop on line 19 iterated over j with a complex condition. In the transformed version (lines 10-33), these for loops were converted to while loops with explicit increment and decrement operations (i++, j++). This helped the model correctly predict the "wrong output".
+        </p>
+
         <div class="container">
             <div class="figure">
                 <img src="./Example/2a.jpg" alt="Before Transformation">
@@ -710,11 +735,11 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
             </div>
         </div>
         <div class="section-caption">
-            <p>Fig. 9: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
+            <p>Fig. 10: An example of a Mispredicted Input changed to a Correctly Predicted Input by CodeImrpove</p>
         </div>
 
         <p>
-            In the provided code in Fig. 9, several transformation were undertaken by CodeImprove to improve prediction accuracy. Initially (lines 2-3, 6-8, 10-14), variables were declared together, loop initializations were concise, and the sum and pos variables were reset within nested loops. After transformation (lines 2-33), variable initializations were updated with modified constants, loops were adjusted (e.g., k = k + 1, i = i + 1), and constants were added to initialization. These changes lead to the correct prediction of a "timeout error".
+            In the provided code in Fig. 10, several transformation were undertaken by CodeImprove to improve prediction accuracy. Initially (lines 2-3, 6-8, 10-14), variables were declared together, loop initializations were concise, and the sum and pos variables were reset within nested loops. After transformation (lines 2-33), variable initializations were updated with modified constants, loops were adjusted (e.g., k = k + 1, i = i + 1), and constants were added to initialization. These changes lead to the correct prediction of a "timeout error".
         </p>
     
 </html>
