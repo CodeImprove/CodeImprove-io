@@ -141,37 +141,38 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
     
     <section id="problem-definition">
        
-       <p>
-        Given a code model <code>M</code> and an input code snippet <code>x</code>, the class with the highest probability is the final prediction result of <code>M</code> for <code>x</code>, denoted as <code>M(x)</code>. During deployment, it is challenging to ensure that every prediction is correct. Thus, our goal is to improve model performance on test inputs via code adaptation.
-    </p>
     <p>
-        Let <code>y</code> be the ground truth label of <code>x</code> and <code>y' = M(x')</code> be the prediction result after adapting <code>x</code> to <code>x'</code> through a series of transformations.
-    </p>
-    <p>
-        The objective is to compute a validation metric <code>V</code> and a set of transformations <code>T = \{T_1, T_2, ..., T_n\}</code> such that the loss of the adapted prediction <code>L(y')</code> is smaller than the original loss <code>L(y)</code>.
-    </p>
-    <p>
-        We aim to find <code>V</code> and <code>T</code> under the following constraints:
-    </p>
-    <ul>
-        <li><code>y = M(x)</code></li>
-        <li>If <code>V(M(x)) &le; c</code>, where <code>c</code> is a threshold, then:
-            <ul>
-                <li>Apply transformations <code>T = \{T_1, T_2, ..., T_n\}</code> to obtain <code>x'</code>:
-                    <br><code>x' = T(T_1, T_2, ..., T_n(x))</code>
-                </li>
-                <li>Predict the new input <code>x'</code> with <code>M</code> to obtain <code>y'</code>:
-                    <br><code>y' = M(x')</code>
-                </li>
-                <li>Ensure the fitness of <code>y'</code> such that the new loss <code>L(y')</code> is smaller than the original loss <code>L(y)</code>:
-                    <br><code>L(y') < L(y)</code>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <p>
-        The challenge is to develop an effective validation metric <code>V</code> and a sequence of transformations <code>T = \{T_1, T_2, ..., T_n\}</code> that adapt mispredicted inputs, thereby improving the model's performance without necessitating retraining.
-    </p>
+    Given a code model <code>M</code> and an input code snippet <code>x</code>, the class with the highest probability is the final prediction result of <code>M</code> for <code>x</code>, denoted as <code>M(x)</code>. During deployment, it is challenging to ensure that every prediction is correct. Thus, our goal is to improve model performance on test inputs via code adaptation.
+</p>
+<p>
+    Let <code>y</code> be the ground truth label of <code>x</code> and <code>y' = M(x')</code> be the prediction result after adapting <code>x</code> to <code>x'</code> through a series of transformations.
+</p>
+<p>
+    The objective is to compute a validation metric <code>V</code> and a set of transformations <code>T<sub>n</sub>  such that the the fitness score of the adapted code <code>L(y')</code> is smaller than the original fitness score <code>L(y)</code>.
+</p>
+<h2>Formulation</h2>
+<p>
+    We aim to find <code>V</code> and <code>T</code> under the following constraints:
+</p>
+<ul>
+    <li><code>y = M(x)</code></li>
+    <li>If <code>V(M(x)) &le; c</code>, where <code>c</code> is a threshold, then:
+        <ul>
+            <li>Apply transformations <code>T<sub>n</sub> to obtain <code>x'</code>:
+                <br><code>x' = <code>T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub>(x)</code>
+            </li>
+            <li>Predict the new input <code>x'</code> with <code>M</code> to obtain <code>y'</code>:
+                <br><code>y' = M(x')</code>
+            </li>
+            <li>Ensure the fitness score of <code>y'</code> such that the new fitness score <code>L(y')</code> is smaller than the original fitness score <code>L(y)</code>:
+                <br><code>L(y') < L(y)</code>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p>
+    The challenge is to develop an effective validation metric <code>V</code> and a sequence of transformations <code>T<sub>n</sub> </code> that adapt mispredicted inputs, thereby improving the model's performance without necessitating retraining.
+</p>
     </section>
 </body>
 
