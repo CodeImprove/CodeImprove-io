@@ -141,43 +141,52 @@ Additionally, our input validation is promising in detecting out-of-scope inputs
     
     <section id="problem-definition">
        
-        <p>
-            Given a code model M and an input code snippet x, the class with the largest probability is the final prediction result of M for x, denoted as M(x). Assume y is the ground truth label of x. We can denote the correct prediction or misprediction as follows:
-        </p>
-        <ul>
-            <li>If y == M(x), it is a correct prediction.</li>
-            <li>Else, it is a misprediction.</li>
-        </ul>
-        <p>
-            However, these code models do not guarantee the correct prediction for each test input during deployment. This work aims to improve the model performance on test inputs via code adaptation, which is an effective technique different from others that require retraining or replacing the model.
-        </p>
-        <p>
-            The process of input adaptation for code data possesses two challenges: 1) Oracle problem: validating a given test input as in-scope or out-of-scope, and 2) Search problem: how to adapt the out-of-scope input to become in-scope input.
-        </p>
+       <p>
+        Given a code model <code>M</code> and an input code snippet <code>x</code>, the class with the highest probability is the final prediction result of <code>M</code> for <code>x</code>, denoted as <code>M(x)</code>. If <code>y</code> is the ground truth label of <code>x</code>, we can define the prediction correctness as follows:
+    </p>
+    <ul>
+        <li>If <code>y == M(x)</code>, it is a correct prediction.</li>
+        <li>Else, it is a misprediction.</li>
+    </ul>
+    <p>
+        However, these code models do not guarantee correct predictions for every test input during deployment. This work aims to improve model performance on test inputs via code adaptation, a technique that does not require retraining or replacing the model.
+    </p>
 
-         <h2>Oracle Problem</h2>
-        
-        <p>
-            During the deployment of a code model, we cannot exactly determine whether the prediction for a given code input is correct without manual analysis. This means that it is difficult to automatically decide whether a given code input is correctly predicted or not. Therefore, we can formulate the oracle problem as follows:
-        </p>
-        <p>
-            For a code model M and an input code snippet x, let V be the metric that determines the validation of the input x. Hence:
-        </p>
-        <ul>
-            <li>If V(M(x)) &gt; c, it is a correct prediction, where c is a threshold to differentiate the validity score.</li>
-            <li>Else, it is a misprediction.</li>
-        </ul>
+    <p>
+        During deployment, it is challenging to determine automatically whether a prediction is correct. Therefore, we introduce a validation metric <code>V</code> as follows:
+    </p>
+    <ul>
+        <li>For a code model <code>M</code> and an input code snippet <code>x</code>, let <code>V</code> be the metric that assesses the validity of <code>M(x)</code>.
+            <ul>
+                <li>If <code>V(M(x)) &gt; c</code>, where <code>c</code> is a threshold, the prediction is considered valid.</li>
+                <li>Otherwise, the prediction is considered invalid.</li>
+            </ul>
+        </li>
+    </ul>
 
-         <h2>Code Adaptation</h2>
-        <p>
-            For each mispredicted input, we can apply a sequence of transformations to find the most likely input to adapt the model’s performance. Assume that T is the algorithm to apply a set of transformations T<sub>1</sub>, T<sub>2</sub>, T<sub>3</sub>, ..., T<sub>n</sub> to find a new input x'. We predict the new input x' with M to get y':
-        </p>
-        <ul>
-            <li>x' = T(T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n</sub>(x))</li>
-            <li>y' = M(x')</li>
-            <li>If y' == y, adapt the input.</li>
-            <li>Else, apply more transformations.</li>
-        </ul>
+    <p>
+        For each input deemed invalid, we apply a sequence of transformations to improve the model's prediction. Let <code>T</code> represent the algorithm that applies transformations <code>T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub></code> to find a new input <code>x'</code>:
+    </p>
+    <ul>
+        <li>If <code>V(M(x)) &le; c</code>:
+            <ul>
+                <li>Generate a transformed input <code>x'</code> using <code>T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub>(x)</code>.</li>
+                <li>Predict the new input <code>x'</code> with <code>M</code> to obtain <code>y'</code>.</li>
+                <li>Assess the fitness of <code>y'</code> using a fitness function <code>L(y')</code>, aiming to make <code>y'</code> closer to the ground truth <code>y</code>.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <p>
+        The ultimate objective is to find an effective validation metric <code>V</code> and a set of transformation algorithms <code>T<sub>1</sub>, T<sub>2</sub>, &hellip;, T<sub>n</sub></code> to adapt mispredicted inputs, thereby enhancing the model's performance without necessitating retraining.
+    </p>
+
+    <h2>Goals</h2>
+    <p>The primary goals of this work are:</p>
+    <ol>
+        <li>To develop a validation metric <code>V</code> that can determine the validity of a model's prediction for a given input.</li>
+        <li>To create a set of transformations <code>T</code> that can adapt mispredicted inputs to improve model performance.</li>
+    </ol>
     </section>
 </body>
 
